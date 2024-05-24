@@ -27,11 +27,14 @@ class LoginPage extends StatelessWidget {
                     ),
 
                     ///***If you have exported images you must have to copy those images in assets/images directory.
-                    Image(
-                      image: AssetImage("assets/images/logo.png"),
-                      height: 100,
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.scaleDown,
+                    Hero(
+                      tag: "logo",
+                      child: Image(
+                        image: AssetImage("assets/images/logo.png"),
+                        height: 100,
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.scaleDown,
+                      ),
                     ),
                   ],
                 ),
@@ -222,7 +225,8 @@ class LoginPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       child: Text(
                         "LGOIN",
                         style: TextStyle(
