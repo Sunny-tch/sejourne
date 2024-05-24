@@ -1,17 +1,15 @@
-///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
-
-///File download from FlutterViz- Drag and drop a tools. For more details visit https://flutterviz.io/
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sejourne/features/auth/ui/SignUpPage.dart';
+import 'package:sejourne/features/auth/ui/LoginPage.dart';
 
-import '../get_controllers/login_get_controller.dart';
+import '../get_controllers/sign_up_get_controller.dart';
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    LoginGetController getController = Get.put(LoginGetController());
+    SignUpGetController getController = Get.put(SignUpGetController());
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xffffffff),
@@ -69,7 +67,7 @@ class LoginPage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          "Welcome",
+                          "Create Account",
                           textAlign: TextAlign.start,
                           overflow: TextOverflow.clip,
                           style: TextStyle(
@@ -87,7 +85,7 @@ class LoginPage extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          "Enter Your Phone Number & Password",
+                          "Please Create Your Account",
                           textAlign: TextAlign.start,
                           overflow: TextOverflow.clip,
                           style: TextStyle(
@@ -102,6 +100,61 @@ class LoginPage extends StatelessWidget {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: 16,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                      child: TextFormField(
+                        controller: getController.nameController,
+                        obscureText: false,
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 14,
+                          color: Color(0xff000000),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Name is required';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          labelText: "Name",
+                          labelStyle: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 14,
+                            color: Color(0xffaaaaaa),
+                          ),
+                          hintStyle: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 14,
+                            color: Color(0xff000000),
+                          ),
+                          filled: false,
+                          fillColor: Color(0xfff2f2f3),
+                          isDense: false,
+                          contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
@@ -138,14 +191,14 @@ class LoginPage extends StatelessWidget {
                             borderSide:
                                 BorderSide(color: Color(0xff9c9c9c), width: 1),
                           ),
-                          labelText: "Email or Phone Number",
+                          labelText: "Email",
                           labelStyle: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontStyle: FontStyle.normal,
                             fontSize: 14,
                             color: Color(0xffaaaaaa),
                           ),
-                          hintText: "Email or Phone Number",
+                          hintText: "Email",
                           hintStyle: TextStyle(
                             fontWeight: FontWeight.w400,
                             fontStyle: FontStyle.normal,
@@ -157,27 +210,6 @@ class LoginPage extends StatelessWidget {
                           isDense: false,
                           contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 8),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            "Forgot Password?",
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Color(0xff702953),
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                     Padding(
@@ -231,6 +263,57 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                      child: TextFormField(
+                        controller: getController.retypePasswordController,
+                        obscureText: false,
+                        textAlign: TextAlign.start,
+                        maxLines: 1,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 14,
+                          color: Color(0xff000000),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter password';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          disabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide:
+                                BorderSide(color: Color(0xff9c9c9c), width: 1),
+                          ),
+                          labelText: "Re-type Password",
+                          labelStyle: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 14,
+                            color: Color(0xffaaaaaa),
+                          ),
+                          filled: false,
+                          fillColor: Color(0xfff2f2f3),
+                          isDense: false,
+                          contentPadding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                          suffixIcon: Icon(Icons.visibility,
+                              color: Color(0xffd0d0d0), size: 24),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: 16,
@@ -239,7 +322,7 @@ class LoginPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                       child: MaterialButton(
                         onPressed: () {
-                          getController.initiateLogin();
+                          getController.initiateSignUp();
                         },
                         color: Color(0xff702953),
                         elevation: 0,
@@ -249,7 +332,7 @@ class LoginPage extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         child: Text(
-                          "LGOIN",
+                          "REGISTER NOW",
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -262,133 +345,12 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                      width: 16,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            "SIGN UP WITH SOCIAL MEDIA",
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 12,
-                              color: Color(0xff000000),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      width: 16,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: Color(0xffffffff),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(color: Color(0xff9c9c9c), width: 1),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                            child:
-
-                                ///***If you have exported images you must have to copy those images in assets/images directory.
-                                Image(
-                              image: AssetImage("assets/images/google.png"),
-                              height: 25,
-                              width: 25,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                            child: Text(
-                              "Continue  With Google",
-                              textAlign: TextAlign.start,
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 14,
-                                color: Color(0xff000000),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                      width: 16,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        color: Color(0xffffffff),
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(color: Color(0xff9c9c9c), width: 1),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 0, 4, 0),
-                            child:
-
-                                ///***If you have exported images you must have to copy those images in assets/images directory.
-                                Image(
-                              image: AssetImage("assets/images/facebook.png"),
-                              height: 25,
-                              width: 25,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(4, 0, 0, 0),
-                            child: Text(
-                              "Continue  With Facebook",
-                              textAlign: TextAlign.start,
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 14,
-                                color: Color(0xff000000),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: 16,
                     ),
                     InkWell(
                       onTap: () {
-                        Get.offAll(() => SignUpPage());
+                        Get.offAll(() => LoginPage());
                       },
                       child: Padding(
                         padding:
@@ -399,7 +361,7 @@ class LoginPage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              "Don’t Have an Account? ",
+                              "Already Have an Account? ",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
@@ -410,7 +372,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Sign Up",
+                              "Login",
                               textAlign: TextAlign.start,
                               overflow: TextOverflow.clip,
                               style: TextStyle(
