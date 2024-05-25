@@ -439,6 +439,140 @@ class HomeTab extends StatelessWidget {
                 decorator: DotsDecorator(
                     color: Color(0xFFEF048C), activeColor: Color(0xFF881C5E)));
           }),
+          SizedBox(
+            height: 2.h,
+          ),
+          Row(
+            children: [
+              Text("Location",
+                  style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold)),
+              Spacer(),
+              Text("See All",
+                  style: TextStyle(
+                    color: Color(0xFF861D5E),
+                    fontSize: 12.sp,
+                  ))
+            ],
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ...List.generate(15, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Column(
+                      children: [
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                              "assets/images/show.png",
+                              height: 15.h,
+                              width: 15.h,
+                            )),
+                        Text(
+                          'Places Names',
+                          style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontSize: 12.dp,
+                              fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    ),
+                  );
+                })
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 2.h,
+          ),
+          Row(
+            children: [
+              Text("Properties",
+                  style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.bold)),
+            ],
+          ),
+          ...List.generate(5, (index) {
+            return Card(
+              child: Row(
+                children: [
+                  ClipRRect(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10)),
+                      child: Image.asset('assets/images/show.png',
+                          width: 25.w, height: 15.h)),
+                  SizedBox(
+                    width: 2.h,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Stuning Studio Apartments In Dubai',
+                        style: TextStyle(
+                            color: Color(0xFF000000),
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(height: 3.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.money_outlined, size: 4.w),
+                              Text('/night'),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.location_on_outlined, size: 4.w),
+                              Text('JLT DUBAI'),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 2.w),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            flex:1,
+                            child: Row(
+                              children: [
+                                Icon(Icons.bed, size: 4.w),
+                                Text(' Beds'),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 15.w,
+                          ),
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Icon(Icons.bathtub_outlined, size: 4.w),
+                                Text('1 Bath'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            );
+          })
         ],
       )),
     );

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../models/login_resp_model.dart';
 import '../../home/ui/home_page.dart';
 
 class LoginGetController extends GetxController {
+
+  // email , password
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -15,8 +18,8 @@ class LoginGetController extends GetxController {
     if (!formKey.currentState!.validate()) {
       return;
     }
-    var headers = {'Accept': 'application/json'};
-    var request = http.MultipartRequest(
+    final headers = {'Accept': 'application/json'};
+    final request = http.MultipartRequest(
         'POST', Uri.parse('https://api.sejourne.ae/api/login'));
     request.fields.addAll({
       'email': emailController.text.trim(),
@@ -28,7 +31,10 @@ class LoginGetController extends GetxController {
     http.StreamedResponse response = await request.send();
 
     if (response.statusCode == 200) {
-      Get.offAll(() => HomePage());
+     LoginRespModel respModel= loginRespModelFromJson(await response.stream.bytesToString());
+      if(respModel.status) {
+        Get.offAll(() => HomePage());
+      }
     } else {
       print(response.reasonPhrase);
     }

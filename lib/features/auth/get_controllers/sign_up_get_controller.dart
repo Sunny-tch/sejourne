@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
+import '../../home/ui/home_page.dart';
+
 class SignUpGetController extends GetxController {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -12,8 +14,8 @@ class SignUpGetController extends GetxController {
   TextEditingController retypePasswordController = TextEditingController();
 
   Future<void> initiateSignUp() async {
-    var headers = {'Accept': 'application/json'};
-    var request = http.MultipartRequest(
+    final headers = {'Accept': 'application/json'};
+    final request = http.MultipartRequest(
         'POST', Uri.parse('https://api.sejourne.ae/api/register'));
     request.fields.addAll({
       'name': nameController.text.trim(),
@@ -28,6 +30,7 @@ class SignUpGetController extends GetxController {
 
     if (response.statusCode == 200) {
       print(await response.stream.bytesToString());
+      Get.offAll(() => HomePage());
     } else {
       print(response.reasonPhrase);
     }

@@ -21,15 +21,12 @@ class SignUpPage extends StatelessWidget {
                 Stack(
                   alignment: Alignment.topLeft,
                   children: [
-                    ///***If you have exported images you must have to copy those images in assets/images directory.
                     Image(
                       image: AssetImage("assets/images/top_decorative.png"),
                       height: 100,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.cover,
                     ),
-
-                    ///***If you have exported images you must have to copy those images in assets/images directory.
                     Hero(
                       tag: "logo",
                       child: Image(
