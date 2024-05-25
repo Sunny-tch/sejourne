@@ -502,72 +502,94 @@ class HomeTab extends StatelessWidget {
           ...List.generate(5, (index) {
             return Card(
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ClipRRect(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10)),
-                      child: Image.asset('assets/images/show.png',
-                          width: 25.w, height: 15.h)),
+                      child: Image.asset(
+                        'assets/images/show.png',
+                        width: 25.w,
+                        height: 15.h,
+                        fit: BoxFit.cover,
+                      )),
                   SizedBox(
                     width: 2.h,
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        'Stuning Studio Apartments In Dubai',
-                        style: TextStyle(
-                            color: Color(0xFF000000),
-                            fontWeight: FontWeight.w600),
-                      ),
-                      SizedBox(height: 3.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.money_outlined, size: 4.w),
-                              Text('/night'),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Row(
-                            children: [
-                              Icon(Icons.location_on_outlined, size: 4.w),
-                              Text('JLT DUBAI'),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(width: 2.w),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
-                            flex:1,
-                            child: Row(
-                              children: [
-                                Icon(Icons.bed, size: 4.w),
-                                Text(' Beds'),
-                              ],
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Text(
+                          'Stuning Studio Apartments In Dubai',
+                          style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(height: 3.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Icon(Icons.money_outlined, size: 4.w),
+                                  Text('/night'),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Expanded(
-                            child: Row(
-                              children: [
-                                Icon(Icons.bathtub_outlined, size: 4.w),
-                                Text('1 Bath'),
-                              ],
+                            SizedBox(
+                              width: 15.w,
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Icon(Icons.location_on_outlined, size: 4.w),
+                                  Text('JLT DUBAI'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 2.w),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Row(
+                                children: [
+                                  Icon(Icons.bed, size: 4.w),
+                                  Text(' Beds'),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Icon(Icons.bathtub_outlined, size: 4.w),
+                                  Text('1 Bath'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 1.w),
+                        Row(
+                          children: [
+                            Image.asset('assets/images/icon2.png',
+                                height: 2.5.h),
+                            SizedBox(width: 1.w),
+                            Image.asset('assets/images/icon2.png',
+                                height: 2.5.h),
+                          ],
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),

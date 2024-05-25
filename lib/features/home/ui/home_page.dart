@@ -9,11 +9,11 @@ class HomePage extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        body: TabBarView(children: [
-          HomeTab(),
-        ],),
-
-
+        body: TabBarView(
+          children: [
+            HomeTab(),
+          ],
+        ),
       ),
     );
   }
