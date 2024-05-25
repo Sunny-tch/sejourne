@@ -529,7 +529,7 @@ class HomeTab extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                'Stuning Studio Apartments In Dubai',
+                                'Stunning Studio Apartments In Dubai Arch (JLT)',
                                 style: TextStyle(
                                     color: Color(0xFF000000),
                                     fontWeight: FontWeight.w600),
