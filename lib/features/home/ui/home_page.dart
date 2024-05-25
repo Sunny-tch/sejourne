@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
         bottomNavigationBar: TabBar(
+          indicatorColor: Color(0xff841D5D),
           tabs: [
             Tab(
               icon: Icon(Icons.home),
